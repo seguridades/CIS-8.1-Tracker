@@ -19,7 +19,7 @@ const startNew = () => {
         CIS Controls v8.1 <span class="text-primary-600">Compliance Tracker</span>
       </h1>
       <p class="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
-        Herramienta profesional para el seguimiento, evaluación y reporte del cumplimiento de los Controles Críticos de Seguridad de CIS.
+        Herramienta profesional para el seguimiento, evaluación y reporte del cumplimiento de los Controles Críticos de Seguridad de CIS 8.1.
       </p>
       
       <div class="mt-10 flex flex-wrap justify-center gap-4">
@@ -42,7 +42,7 @@ const startNew = () => {
             Los CIS Critical Security Controls® son un conjunto prioritario de buenas prácticas de ciberseguridad que se utilizan para mitigar los ciberataques más comunes contra sistemas y redes.
           </p>
           <p>
-            La versión 8.1 (publicada en 2024) incluye 18 Controles y 153 Salvaguardas, diseñados a partir de datos reales de ataques. Esta herramienta le permite llevar un seguimiento granular de su implementación.
+            La versión 8.1 (publicada en 2024) incluye 18 Controles y 153 Salvaguardas, diseñados a partir de datos reales de ataques. Esta herramienta te permite llevar un seguimiento granular de su implementación.
           </p>
         </div>
         <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -69,7 +69,7 @@ const startNew = () => {
         <div>
           <h3 class="text-xl font-bold mb-3">Privacidad Total</h3>
           <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6">
-            Esta aplicación es 100% "client-side". Sus datos no viajan a ningún servidor. Todo se almacena localmente en su navegador.
+            Esta aplicación es 100% "client-side". Tus datos no viajan a ningún servidor. Todo se almacena localmente en tu navegador.
           </p>
         </div>
         <div class="space-y-3">

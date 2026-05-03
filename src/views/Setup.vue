@@ -71,7 +71,7 @@ const submit = async () => {
   <div class="max-w-4xl mx-auto px-6 py-12">
     <div class="mb-10 text-center">
       <h1 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">{{ isEditing ? 'Editar Configuración' : 'Configuración del Proyecto' }}</h1>
-      <p class="text-slate-500">{{ isEditing ? 'Actualice los datos de la organización o el alcance del proyecto.' : 'Defina el alcance y los objetivos de la evaluación CIS Controls v8.1' }}</p>
+      <p class="text-slate-500">{{ isEditing ? 'Actualizar los datos de la organización o el alcance del proyecto.' : 'Definir el alcance y los objetivos de la evaluación CIS Controls v8.1' }}</p>
     </div>
 
     <form @submit.prevent="submit" class="space-y-8">
@@ -92,11 +92,11 @@ const submit = async () => {
           </div>
           <div class="space-y-2">
             <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Sector</label>
-            <input v-model="form.sector" type="text" class="input" placeholder="Ej. Financiero" />
+            <input v-model="form.sector" type="text" class="input" placeholder="Ej. DDHH, Periodismo.." />
           </div>
           <div class="space-y-2">
             <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Tamaño Aproximado</label>
-            <input v-model="form.sizeApprox" type="text" class="input" placeholder="Ej. 100-500 empleados" />
+            <input v-model="form.sizeApprox" type="text" class="input" placeholder="Ej. 10-50 empleados" />
           </div>
         </div>
       </section>
@@ -135,11 +135,11 @@ const submit = async () => {
             <input v-model="form.auditor.name" type="text" class="input" required />
           </div>
           <div class="space-y-2">
-            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Empresa Consultora</label>
+            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Organización</label>
             <input v-model="form.auditor.consultancy" type="text" class="input" />
           </div>
           <div class="space-y-2">
-            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Logo del Auditor (Max 200KB)</label>
+            <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Logo de la Organización (Max 200KB)</label>
             <div class="flex items-center gap-4">
               <div v-if="form.auditor.logoBase64" class="w-12 h-12 rounded border p-1 bg-white">
                 <img :src="form.auditor.logoBase64" class="w-full h-full object-contain" />
@@ -197,9 +197,9 @@ const submit = async () => {
           <input type="text" name="username" :value="form.orgName" autocomplete="username" class="hidden" aria-hidden="true" />
           <div class="space-y-2">
             <label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Contraseña de Cifrado</label>
-            <input v-model="password" type="password" class="input" placeholder="Ingrese una contraseña para proteger sus datos" required autocomplete="new-password" />
+            <input v-model="password" type="password" class="input" placeholder="Ingresa una contraseña para proteger tus datos" required autocomplete="new-password" />
             <p class="text-[10px] text-slate-500 italic">
-              Esta contraseña se utiliza para cifrar los datos en su navegador. No la olvide, ya que no se puede recuperar.
+              Esta contraseña se utiliza para cifrar los datos en tu navegador. No la olvides, ya que no se puede recuperar.
             </p>
           </div>
         </div>

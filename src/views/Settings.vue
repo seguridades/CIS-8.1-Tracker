@@ -112,7 +112,7 @@ const cancelImport = () => {
         <div class="flex items-center justify-between">
           <div>
             <p class="font-bold">Tema de la interfaz</p>
-            <p class="text-sm text-slate-500">Cambie entre modo claro, oscuro o automático</p>
+            <p class="text-sm text-slate-500">Cambiar entre modo claro, oscuro o automático</p>
           </div>
           <div class="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
             <button 
@@ -137,7 +137,7 @@ const cancelImport = () => {
         <div class="flex items-center justify-between p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
           <div>
             <p class="font-bold">Información y Alcance</p>
-            <p class="text-sm text-slate-500">Edite los datos de la organización, auditor o el alcance del proyecto.</p>
+            <p class="text-sm text-slate-500">Eduta los datos de la organización, auditor o el alcance del proyecto.</p>
           </div>
           <button @click="router.push('/setup')" class="btn-secondary">
             Editar Configuración
@@ -155,7 +155,7 @@ const cancelImport = () => {
           <div class="p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
             <h3 class="font-bold mb-2">Exportar Evaluación</h3>
             <p class="text-xs text-slate-500 mb-6 leading-relaxed">
-              Descargue un archivo JSON con todos los datos de su evaluación. Este es su único respaldo.
+              Descargar un archivo JSON con todos los datos de su evaluación. Este es tu único respaldo.
             </p>
             <button @click="exportJson" class="btn-primary w-full">
               <Download class="mr-2" :size="18" />
@@ -166,7 +166,7 @@ const cancelImport = () => {
           <div class="p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
             <h3 class="font-bold mb-2">Importar Evaluación</h3>
             <p class="text-xs text-slate-500 mb-4 leading-relaxed">
-              Cargue una evaluación previa. Los datos se re-cifrarán con la contraseña que indique.
+              Carguar una evaluación previa. Los datos se re-cifrarán con la contraseña que indiques.
             </p>
 
             <!-- Step 1: File selector (hidden when file is loaded) -->
@@ -192,7 +192,7 @@ const cancelImport = () => {
               <div class="flex gap-2">
                 <button @click="confirmImport" :disabled="!importPassword || importLoading" class="btn-primary flex-1 py-2 text-sm">
                   <span v-if="importLoading">Importando...</span>
-                  <span v-else>Confirmar Import</span>
+                  <span v-else>Confirmar Importación</span>
                 </button>
                 <button @click="cancelImport" class="btn-secondary px-3 py-2">
                   <XCircle :size="16" />
