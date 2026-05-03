@@ -27,8 +27,8 @@ const currentYear = new Date().getFullYear()
           </div>
           <div class="flex flex-col gap-2">
             <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Desarrollo</span>
-            <span class="text-sm text-slate-500">v1.0.0 — Offline Edition</span>
-            <span class="text-sm text-slate-500">&copy; {{ currentYear }} — Built with &hearts;</span>
+            <span class="text-sm text-slate-500">v1.0.0</span>
+            <span class="text-sm text-slate-500">Hecho con 🍺 por seguridades.org</span>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@ const currentYear = new Date().getFullYear()
       <div class="pt-8 border-t border-slate-100 dark:border-slate-800">
         <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 text-center">
           <p class="text-xs md:text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
-            Based on CIS Critical Security Controls&reg; v8.1 &mdash; &copy; Center for Internet Security, Inc. 
+            Basado en CIS Critical Security Controls&reg; v8.1 | &copy; Center for Internet Security, Inc. 
             <br class="md:hidden" />
             <a href="https://www.cisecurity.org/controls/" target="_blank" class="text-primary-600 hover:underline inline-flex items-center ml-1">
               cisecurity.org/controls/
