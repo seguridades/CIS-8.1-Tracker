@@ -1,0 +1,118 @@
+{
+  "seedVersion": "2025-03-01",
+  "frameworkVersion": "8.1",
+  "sourcePub": "CIS Critical Security Controls v8.1",
+  "fetchedAt": "2026-05-03T01:43:57.202Z",
+  "license": "CC BY-NC-ND 4.0",
+  "attribution": "Center for Internet Security, Inc. — https://www.cisecurity.org/controls/",
+  "controls": [
+    {
+      "number": 1,
+      "name": "Inventory and Control of Enterprise Assets",
+      "description": "Actively manage (inventory, track, and correct) all enterprise assets (end-user devices, including portable and mobile; network devices; non-computing/Internet of Things (IoT) devices; and servers) connected to the infrastructure physically, virtually, remotely, and those within cloud environments, to accurately know the totality of assets that need to be monitored and protected within the enterprise. This will also support identifying unauthorized and unmanaged assets to remove or remediate.",
+      "sortOrder": 1
+    },
+    {
+      "number": 2,
+      "name": "Inventory and Control of Software Assets",
+      "description": "Actively manage (inventory, track, and correct) all software (operating systems and applications) on the network so that only authorized software is installed and can execute, and that unauthorized and unmanaged software is found and prevented from installation or execution.",
+      "sortOrder": 2
+    },
+    {
+      "number": 3,
+      "name": "Data Protection",
+      "description": "Develop processes and technical controls to identify, classify, securely handle, retain, and dispose of data.",
+      "sortOrder": 3
+    },
+    {
+      "number": 4,
+      "name": "Secure Configuration of Enterprise Assets and Software",
+      "description": "Establish and maintain the secure configuration of enterprise assets (end-user devices, including portable and mobile; network devices; non-computing/IoT devices; and servers) and software (operating systems and applications).",
+      "sortOrder": 4
+    },
+    {
+      "number": 5,
+      "name": "Account Management",
+      "description": "Use processes and tools to assign and manage authorization to credentials for user accounts, including administrator accounts, as well as service accounts, to enterprise assets and software.",
+      "sortOrder": 5
+    },
+    {
+      "number": 6,
+      "name": "Access Control Management",
+      "description": "Use processes and tools to create, assign, manage, and revoke access credentials and privileges for user, administrator, and service accounts for enterprise assets and software.",
+      "sortOrder": 6
+    },
+    {
+      "number": 7,
+      "name": "Continuous Vulnerability Management",
+      "description": "Develop a plan to continuously assess and track vulnerabilities on all enterprise assets within the enterprise’s infrastructure, in order to remediate, and minimize, the window of opportunity for attackers. Monitor public and private industry sources for new threat and vulnerability information.",
+      "sortOrder": 7
+    },
+    {
+      "number": 8,
+      "name": "Audit Log Management",
+      "description": "Collect, alert, review, and retain audit logs of events that could help detect, understand, or recover from an attack.",
+      "sortOrder": 8
+    },
+    {
+      "number": 9,
+      "name": "Email and Web Browser Protections",
+      "description": "Improve protections and detections of threats from email and web vectors, as these are opportunities for attackers to manipulate human behavior through direct engagement.",
+      "sortOrder": 9
+    },
+    {
+      "number": 10,
+      "name": "Malware Defenses",
+      "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+      "sortOrder": 10
+    },
+    {
+      "number": 11,
+      "name": "Data Recovery",
+      "description": "Establish and maintain data recovery practices sufficient to restore in-scope enterprise assets to a pre-incident and trusted state.",
+      "sortOrder": 11
+    },
+    {
+      "number": 12,
+      "name": "Network Infrastructure Management",
+      "description": "Establish, implement, and actively manage (track, report, correct) network devices, in order to prevent attackers from exploiting vulnerable network services and access points.",
+      "sortOrder": 12
+    },
+    {
+      "number": 13,
+      "name": "Network Monitoring and Defense",
+      "description": "Operate processes and tooling to establish and maintain comprehensive network monitoring and defense against security threats across the enterprise’s network infrastructure and user base.",
+      "sortOrder": 13
+    },
+    {
+      "number": 14,
+      "name": "Security Awareness and Skills Training",
+      "description": "Establish and maintain a security awareness program to influence behavior among the workforce to be security conscious and properly skilled to reduce cybersecurity risks to the enterprise.",
+      "sortOrder": 14
+    },
+    {
+      "number": 15,
+      "name": "Service Provider Management",
+      "description": "Develop a process to evaluate service providers who hold sensitive data, or are responsible for an enterprise’s critical IT platforms or processes, to ensure these providers are protecting those platforms and data appropriately.",
+      "sortOrder": 15
+    },
+    {
+      "number": 16,
+      "name": "Application Software Security",
+      "description": "Manage the security life cycle of in-house developed, hosted, or acquired software to prevent, detect, and remediate security weaknesses before they can impact the enterprise.",
+      "sortOrder": 16
+    },
+    {
+      "number": 17,
+      "name": "Incident Response Management",
+      "description": "Establish a program to develop and maintain an incident response capability (e.g., policies, plans, procedures, defined roles, training, and communications) to prepare, detect, and quickly respond to an attack.",
+      "sortOrder": 17
+    },
+    {
+      "number": 18,
+      "name": "Penetration Testing",
+      "description": "Test the effectiveness and resiliency of enterprise assets through identifying and exploiting weaknesses in controls (people, processes, and technology), and simulating the objectives and actions of an attacker.",
+      "sortOrder": 18
+    }
+  ]
+}
