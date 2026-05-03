@@ -6,36 +6,43 @@
 ![Offline First](https://img.shields.io/badge/Offline-First-success?style=for-the-badge)
 ![Privacy](https://img.shields.io/badge/Privacy-Total-blueviolet?style=for-the-badge)
 
-Una herramienta profesional, segura y 100% *client-side* diseñada para automatizar el seguimiento, evaluación y reporte del cumplimiento de los **CIS Critical Security Controls v8.1**.
+Una herramienta de auditoría **CIS Critical Security Controls v8.1**, moderna y segura para el seguimiento de cumplimiento con el estándar CIS v 8.1.
+
+**Demo en vivo:** [cis-tracker.seguridades.org](https://cis-tracker.seguridades.org)
 
 ---
 
-## 🛡️ Características Principales
+## Características Principales
 
-### 🔐 Privacidad Total y Cifrado
-*   **Zero-Server Architecture**: Todos los datos residen exclusivamente en su navegador.
-*   **Cifrado de Grado Militar**: Los datos se cifran utilizando la **Web Crypto API (AES-GCM 256-bit)** con una clave derivada de su contraseña personal (**PBKDF2**).
-*   **Pantalla de Desbloqueo**: Sus evaluaciones están protegidas contra acceso no autorizado local.
+### Privacidad Total y Cifrado
 
-### 📊 Evaluación y Reporting
-*   **Gestión de IGs**: Filtrado dinámico por Implementation Groups (IG1, IG2, IG3).
-*   **Mapa de Calor**: Visualización 6x7 de cumplimiento cruzando *Security Functions* vs *Asset Types*.
-*   **Adjuntos Binarios**: Soporte para subir evidencias reales (PDF, Imágenes) almacenadas en **IndexedDB**.
-*   **Remediación Automatizada**: Generación de planes de acción basados en las brechas identificadas.
+- **Zero-Server Architecture**: Todos los datos residen exclusivamente en su navegador.
+- **Cifrado de Grado Militar**: Los datos se cifran utilizando la **Web Crypto API (AES-GCM 256-bit)** con una clave derivada de su contraseña personal (**PBKDF2**).
+- **Pantalla de Desbloqueo**: Sus evaluaciones están protegidas contra acceso no autorizado local.
 
-### 🚀 Distribución y Portabilidad
-*   **Distribución ZIP**: Exporte la carpeta `dist` y ejecútela directamente desde `file://` en cualquier PC sin necesidad de servidor web.
-*   **Backup JSON**: Exporte e importe sus proyectos cifrados para respaldo o transferencia entre equipos.
+### Evaluación y Reporting
+
+- **Gestión de IGs**: Filtrado dinámico por Implementation Groups (IG1, IG2, IG3).
+- **Mapa de Calor**: Visualización 6x7 de cumplimiento cruzando _Security Functions_ vs _Asset Types_.
+- **Adjuntos Binarios**: Soporte para subir evidencias reales (PDF, Imágenes) almacenadas en **IndexedDB**.
+- **Remediación Automatizada**: Generación de planes de acción basados en las brechas identificadas.
+
+### Distribución y Portabilidad
+
+- **Distribución ZIP**: Exporte la carpeta `dist` y ejecútela directamente desde `file://` en cualquier PC sin necesidad de servidor web.
+- **Backup JSON**: Exporte e importe sus proyectos cifrados para respaldo o transferencia entre equipos.
 
 ---
 
-## 🛠️ Instalación y Desarrollo
+## Instalación y Desarrollo
 
 ### Requisitos
-*   Node.js (v18+)
-*   NPM
+
+- Node.js (v18+)
+- NPM
 
 ### Pasos para Desarrollo
+
 1. Clonar el repositorio.
 2. Instalar dependencias:
    ```bash
@@ -47,16 +54,21 @@ Una herramienta profesional, segura y 100% *client-side* diseñada para automati
    ```
 
 ### Construcción para Distribución
+
 Para generar la versión portable:
+
 ```bash
 npm run build
 ```
+
 La carpeta `dist/` resultante contiene todo lo necesario para funcionar de forma autónoma.
 
 ---
 
-## 📂 Generación de la Semilla (Datos de CIS)
+## Generación de la Semilla (Datos de CIS)
+
 Para actualizar los datos normativos desde el XLSX oficial de CIS:
+
 1. Coloque el archivo oficial en `tools/seed-build/input/CIS_Controls_v8.1.xlsx`.
 2. Ejecute el script de generación:
    ```bash
@@ -65,13 +77,14 @@ Para actualizar los datos normativos desde el XLSX oficial de CIS:
 
 ---
 
-## ⚖️ Licencia y Atribución
-Este software está diseñado para facilitar el uso de los **CIS Critical Security Controls®**. 
+## Licencia y Atribución
 
-*   **Atribución**: CIS Controls® v8.1 Copyright © 2024 Center for Internet Security, Inc. (CIS).
-*   **Uso**: El contenido de los controles se presenta *verbatim* en inglés para asegurar la integridad del framework y cumplir con los términos de uso de CIS.
-*   **Software**: El código de esta aplicación está bajo licencia MIT.
+Este software está diseñado para facilitar el uso de los **CIS Critical Security Controls®**.
+
+- **Atribución**: CIS Controls® v8.1 Copyright © 2024 Center for Internet Security, Inc. (CIS).
+- **Uso**: El contenido de los controles se presenta _verbatim_ en inglés para asegurar la integridad del framework y cumplir con los términos de uso de CIS.
+- **Software**: El código de esta aplicación está bajo licencia MIT.
 
 ---
 
-Desarrollado con ❤️ para la comunidad de Seguridad de la Información.
+Desarrollado con 🍺 para la comunidad.

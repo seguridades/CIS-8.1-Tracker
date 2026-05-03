@@ -90,6 +90,39 @@ export const useProjectStore = defineStore('project', () => {
     save()
   }
 
+  // Imports a backup JSON and re-encrypts it with a new password.
+  // This is the only safe way to restore data since backups are plain JSON.
+  async function importProject(importedProject, importedEvaluations, password) {
+    // 1. Wipe all current state from memory and storage first
+    localStorage.removeItem('cisv81-project')
+    localStorage.removeItem('cisv81-auth-hash')
+    clearDB()
+
+    // 2. Load the imported data into memory
+    project.value = importedProject
+    evaluations.value = importedEvaluations || {}
+    exportedAt.value = new Date().toISOString()
+    sessionPassword.value = password
+    isLocked.value = false
+
+    // 3. Save hash
+    const hash = await hashPassword(password)
+    localStorage.setItem('cisv81-auth-hash', hash)
+    passwordHash.value = hash
+
+    // 4. Encrypt and persist (bypass debounce by calling directly)
+    const data = {
+      schemaVersion: 1,
+      project: project.value,
+      evaluations: evaluations.value,
+      lastSavedAt: new Date().toISOString(),
+      exportedAt: exportedAt.value
+    }
+    const encrypted = await encrypt(JSON.stringify(data), password)
+    localStorage.setItem('cisv81-project', encrypted)
+    lastSavedAt.value = data.lastSavedAt
+  }
+
   function updateProject(updatedProject) {
     project.value = { ...project.value, ...updatedProject }
     save()
@@ -200,6 +233,7 @@ export const useProjectStore = defineStore('project', () => {
     unlock,
     save,
     createProject,
+    importProject,
     updateProject,
     resetProject,
     markAsExported,

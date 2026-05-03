@@ -1,8 +1,9 @@
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useProjectStore } from '@/stores/project'
 import { usePrefsStore } from '@/stores/prefs'
-import { Trash2, AlertTriangle, RefreshCcw, Download, Upload, Shield } from 'lucide-vue-next'
+import { Trash2, AlertTriangle, Download, Upload, Shield, Lock, CheckCircle2, XCircle } from 'lucide-vue-next'
 
 const router = useRouter()
 const projectStore = useProjectStore()
@@ -35,33 +36,65 @@ const exportJson = () => {
   projectStore.markAsExported()
 }
 
-const importJson = (event) => {
+// ── Import flow (critical fix) ───────────────────────────────────
+const pendingImport = ref(null)       // parsed JSON data waiting for password
+const importPassword = ref('')
+const importError = ref('')
+const importSuccess = ref(false)
+const importLoading = ref(false)
+
+const onFileSelected = (event) => {
   const file = event.target.files[0]
   if (!file) return
 
-  if (confirm('Importar un nuevo archivo reemplazará los datos actuales. ¿Desea continuar?')) {
-    const reader = new FileReader()
-    reader.onload = (e) => {
-      try {
-        const data = JSON.parse(e.target.result)
-        if (data.format !== 'cisv81-tracker-export') {
-          alert('Formato de archivo inválido.')
-          return
-        }
-        localStorage.setItem('cisv81-project', JSON.stringify({
-          project: data.project,
-          evaluations: data.evaluations,
-          lastSavedAt: new Date().toISOString(),
-          exportedAt: data.exportedAt
-        }))
-        projectStore.init()
-        alert('Datos importados correctamente.')
-      } catch (err) {
-        alert('Error al leer el archivo JSON.')
+  importError.value = ''
+  importSuccess.value = false
+  importPassword.value = ''
+
+  const reader = new FileReader()
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result)
+      if (data.format !== 'cisv81-tracker-export') {
+        importError.value = 'Formato de archivo inválido. Solo se aceptan exports de este sistema.'
+        return
       }
+      pendingImport.value = data
+    } catch {
+      importError.value = 'Error al leer el archivo. Asegúrese de que sea un JSON válido.'
     }
-    reader.readAsText(file)
   }
+  reader.readAsText(file)
+}
+
+const confirmImport = async () => {
+  if (!pendingImport.value || !importPassword.value) return
+
+  importLoading.value = true
+  importError.value = ''
+
+  try {
+    await projectStore.importProject(
+      pendingImport.value.project,
+      pendingImport.value.evaluations,
+      importPassword.value
+    )
+    importSuccess.value = true
+    pendingImport.value = null
+    importPassword.value = ''
+    // Navigate to dashboard after a brief moment
+    setTimeout(() => router.push('/controls'), 1500)
+  } catch (err) {
+    importError.value = 'Error al importar: ' + err.message
+  } finally {
+    importLoading.value = false
+  }
+}
+
+const cancelImport = () => {
+  pendingImport.value = null
+  importPassword.value = ''
+  importError.value = ''
 }
 </script>
 
@@ -132,14 +165,49 @@ const importJson = (event) => {
           
           <div class="p-6 bg-slate-50 dark:bg-slate-900/50 rounded-2xl border border-slate-100 dark:border-slate-800">
             <h3 class="font-bold mb-2">Importar Evaluación</h3>
-            <p class="text-xs text-slate-500 mb-6 leading-relaxed">
-              Cargue una evaluación previa desde un archivo JSON. Se perderán los datos actuales.
+            <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+              Cargue una evaluación previa. Los datos se re-cifrarán con la contraseña que indique.
             </p>
-            <label class="btn-secondary w-full cursor-pointer">
+
+            <!-- Step 1: File selector (hidden when file is loaded) -->
+            <label v-if="!pendingImport && !importSuccess" class="btn-secondary w-full cursor-pointer">
               <Upload class="mr-2" :size="18" />
               Seleccionar Archivo
-              <input type="file" class="hidden" accept=".json" @change="importJson" />
+              <input type="file" class="hidden" accept=".json" @change="onFileSelected" />
             </label>
+
+            <!-- Step 2: Password confirmation panel -->
+            <div v-if="pendingImport" class="space-y-3 animate-fade-in">
+              <div class="flex items-center gap-2 text-xs font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-3 py-2 rounded-lg border border-amber-100 dark:border-amber-900/30">
+                <Lock :size="14" />
+                Archivo listo: <span class="font-normal truncate max-w-[140px]">{{ pendingImport.project?.orgName }}</span>
+              </div>
+              <input
+                v-model="importPassword"
+                type="password"
+                class="input text-sm"
+                placeholder="Ingrese una contraseña para re-cifrar"
+                autocomplete="new-password"
+              />
+              <div class="flex gap-2">
+                <button @click="confirmImport" :disabled="!importPassword || importLoading" class="btn-primary flex-1 py-2 text-sm">
+                  <span v-if="importLoading">Importando...</span>
+                  <span v-else>Confirmar Import</span>
+                </button>
+                <button @click="cancelImport" class="btn-secondary px-3 py-2">
+                  <XCircle :size="16" />
+                </button>
+              </div>
+            </div>
+
+            <!-- Success state -->
+            <div v-if="importSuccess" class="flex items-center gap-2 text-green-600 font-bold animate-fade-in text-sm">
+              <CheckCircle2 :size="18" />
+              ¡Importado! Redirigiendo...
+            </div>
+
+            <!-- Error message -->
+            <p v-if="importError" class="mt-2 text-xs text-red-600 font-semibold animate-fade-in">{{ importError }}</p>
           </div>
         </div>
       </section>
