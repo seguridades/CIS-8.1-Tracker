@@ -15,9 +15,6 @@ const startNew = () => {
   <div class="max-w-5xl mx-auto px-6 py-12 md:py-20">
     <!-- Hero Section -->
     <header class="text-center mb-16 animate-fade-in">
-      <div class="inline-flex items-center justify-center p-3 mb-6 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 rounded-2xl">
-        <ShieldCheck :size="40" />
-      </div>
       <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
         CIS Controls v8.1 <span class="text-primary-600">Compliance Tracker</span>
       </h1>
